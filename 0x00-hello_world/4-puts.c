@@ -1,7 +1,11 @@
 #include <stdio.h>
 
-/** 
- * print with put 
+/**
+ * main - print string
+ *
+ * Description: use put to print string
+ *
+ * Return: 0 for success
  */
 int main(void)
 {
