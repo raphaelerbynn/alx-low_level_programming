@@ -2,7 +2,7 @@
 
 /**
  * main - print
- * 
+ *
  * Description: print size of types
  * Return: 0 for success
  */
