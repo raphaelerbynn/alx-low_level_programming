@@ -11,17 +11,18 @@
 int main(void)
 {
 	int n = rand();
-	if(n > 0)
+
+	if (n > 0)
 	{
-		puts("is positive\n");
+		printf("%d is positive\n", n);
 	}
-	else if(n < 0)
+	else if (n < 0)
 	{
-		puts("is negative\n");
+		puts("%d is negative\n", n);
 	}
 	else
 	{
-		puts("is zero\n");
+		puts("%d is zero\n", n);
 	}
 	return (0);
 }
