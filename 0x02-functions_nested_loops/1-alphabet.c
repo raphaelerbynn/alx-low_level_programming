@@ -6,7 +6,7 @@
  * Description:using  function for printing
  * Return: 0 for success
  */
-int main(void)
+void print_alphabet(void)
 {
 	char a;
 
@@ -16,5 +16,5 @@ int main(void)
 		a++;
 	}
 	_putchar('\n');
-	return (0);
+	return;
 }
