@@ -1,14 +1,12 @@
 #include "main.h"
 
 /**
- * main - print with func
+ * print_alphabet - print with func
  *
- * Description:using  function for printing
- * Return: 0 for success
  */
 void print_alphabet(void)
 {
-	char a;
+	char a = 'a';
 
 	while(a <= 'z')
 	{
