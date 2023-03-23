@@ -4,7 +4,7 @@
 /**
  * _islower - check if lowercase
  *
- * Description: check if c is lowercase
+ * @param c: char to check
  * Return: 1 if true and 0 if false
  */
 int _islower(int c)
