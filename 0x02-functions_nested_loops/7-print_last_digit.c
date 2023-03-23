@@ -1,17 +1,13 @@
 #include "main.h"
 
 /**
- * print_alphabet - print with func
+ * print_last_digit - print last digit of int
  *
+ * @i: int to check
+ * Description: print last digit of i
+ * Return: last digit of i
  */
-void print_alphabet(void)
+int print_last_digit(int i)
 {
-	char a = 'a';
-
-	while (a <= 'z')
-	{
-		_putchar(a);
-		a++;
-	}
-	_putchar('\n');
+	return (i % 10);
 }
