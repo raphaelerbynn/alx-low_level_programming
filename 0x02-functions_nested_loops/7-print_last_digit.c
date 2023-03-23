@@ -9,5 +9,7 @@
  */
 int print_last_digit(int i)
 {
-	return (i % 10);
+	int ld = i % 10;
+	_putchat(ld);
+	return (ld);
 }
