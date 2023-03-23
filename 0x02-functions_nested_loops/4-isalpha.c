@@ -1,17 +1,18 @@
 #include "main.h"
+#include <ctype.h>
 
 /**
- * print_alphabet - print with func
+ * _isalpha - check if alpha
  *
+ * @c: char to check
+ * Description: check if c is alpha
+ * Return: 1 if true and 0 if false
  */
-void print_alphabet(void)
+int _isalpha(int c)
 {
-	char a = 'a';
-
-	while (a <= 'z')
+	if (isalpha(c))
 	{
-		_putchar(a);
-		a++;
+		return (1);
 	}
-	_putchar('\n');
+	return (0);
 }
