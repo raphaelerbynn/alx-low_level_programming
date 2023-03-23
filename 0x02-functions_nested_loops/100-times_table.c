@@ -8,7 +8,7 @@
  */
 void print_times_table(int n)
 {
-	int i, j, r;
+	int i, j, res;
 
 	if (n <= 15 && n > 0)
 	{
@@ -16,27 +16,25 @@ void print_times_table(int n)
 		{
 			for (j = 0; j <= n; j++)
 			{
-				r = i * j;
-				_putchar(r + '0');
-				if (r != n)
+				res = i * j;
+				if (j == 0)
+				{
+					_putchar('0');
+				}
+				else if (res < 10)
+				{
+					_putchar(' ');
+					_putchar(res + '0');
+				}
+				else
+				{
+					_putchar(res / 10 + '0');
+					_putchar(res % 10 + '0');
+				}
+				if (j < n)
 				{
 					_putchar(',');
-
-					if (r < 10)
-					{
-						_putchar(' ');
-						_putchar(' ');
-						_putchar(' ');
-					}
-					else if (r < 100)
-					{
-						_putchar(' ');
-						_putchar(' ');
-					}
-					else
-					{
-						_putchar(' ');
-					}
+					_putchar(' ');
 				}
 			}
 			_putchar('\n');
