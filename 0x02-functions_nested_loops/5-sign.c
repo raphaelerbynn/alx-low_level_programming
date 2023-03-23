@@ -1,17 +1,27 @@
 #include "main.h"
 
 /**
- * print_alphabet - print with func
+ * print_sign - print sign
  *
+ * @n: int to check
+ * Description: check and print sign of n
+ * Return: 1 if pos, 0 if zero, -1 if neg
  */
-void print_alphabet(void)
+int print_sign(int n)
 {
-	char a = 'a';
-
-	while (a <= 'z')
+	if (n > 0)
+		_putchar('+');
 	{
-		_putchar(a);
-		a++;
+		return (1);
 	}
-	_putchar('\n');
+	else if  (n < 0)
+	{
+		_putchar('-');
+		return (-1);
+	}
+	else
+	{
+		_putchar('0');
+		return (0);
+	}
 }
