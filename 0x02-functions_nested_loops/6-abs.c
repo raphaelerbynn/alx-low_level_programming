@@ -1,17 +1,14 @@
 #include "main.h"
+#include <ctype.h>
 
 /**
- * print_alphabet - print with func
+ * _abs - print abs of int
  *
+ * @i: int to abs
+ * Description: print absolute of int
+ * Return: abs of i
  */
-void print_alphabet(void)
+int _abs(int i)
 {
-	char a = 'a';
-
-	while (a <= 'z')
-	{
-		_putchar(a);
-		a++;
-	}
-	_putchar('\n');
+	return (abs(i));
 }
