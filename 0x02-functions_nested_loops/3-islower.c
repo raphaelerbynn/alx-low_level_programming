@@ -1,17 +1,14 @@
 #include "main.h"
 
 /**
- * print_alphabet - print with func
+ *_islower - check if lowercase
  *
  */
-void print_alphabet(void)
+int _islower(int c)
 {
-	char a = 'a';
-
-	while (a <= 'z')
+	if (islower(c))
 	{
-		_putchar(a);
-		a++;
+		return (1);
 	}
-	_putchar('\n');
+	return (0);
 }
