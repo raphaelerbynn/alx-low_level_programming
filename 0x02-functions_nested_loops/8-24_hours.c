@@ -3,15 +3,15 @@
 /**
  * jack_bauer - prints every minute
  *
- * Description: print every minute in 24hr
+ * Description: prints every minute in 24hr
  */
 void jack_bauer(void)
 {
 	int i, j;
 
-	for (i = 0; i < 24; i++)
+	for (i = 0; i < 10; i++)
 	{
-		for (j = 0; j < 60; j++)
+		for (j = 0; j < 10; j++)
 		{
 			_putchar((i / 10) + '0');
 			_putchar((i % 10) + '0');
