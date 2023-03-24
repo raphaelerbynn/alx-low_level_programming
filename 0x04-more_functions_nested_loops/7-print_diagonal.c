@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print-diagonal - print line
+ * print_diagonal - print line
  *
  * @n: param to count
  * Description: check if c is digit
@@ -14,7 +14,14 @@ void print_diagonal(int n)
 	{
 		for (j = 0; j < i; j++)
 		{
-			_putchar('\\');
+			if (j == (i - 1))
+			{
+				_putchar('\\');
+			}
+			else
+			{
+				_putchar(' ');
+			}
 		}
 		_putchar('\n');
 	}
