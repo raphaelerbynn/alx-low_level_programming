@@ -12,8 +12,8 @@ void rev_string(char *s)
 	char *end;
 	char temp;
 
-	*start = s;
-	*end = s;
+	start = s;
+	end = s;
 	while (*end != '\0')
 	{
 		end++;
