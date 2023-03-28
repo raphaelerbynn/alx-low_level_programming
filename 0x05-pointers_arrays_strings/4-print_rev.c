@@ -1,15 +1,14 @@
 #include "main.h"
 
 /**
- * _strlen - point to 98
+ * print_rev - point to 98
  *
  * @s: pointer value
  * Description: reset to 98
- * Return: the length
  */
-int _strlen(char *s)
+void print_rev(char *s)
 {
-	int len;
+	int len, i;
 
 	len = 0;
 	while (*s != '\0')
@@ -17,5 +16,10 @@ int _strlen(char *s)
 		len++;
 		s++;
 	}
-	return (len);
+
+	for (i = len-1; i >= 0; i--)
+	{
+		_putchar(s[i]);
+	}
+	_putchar('\n');
 }
