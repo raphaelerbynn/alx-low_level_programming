@@ -3,9 +3,9 @@
 #include <ctype.h>
 
 /**
- * main - Entry point of the program
- * @argc: The number of arguments
- * @argv: The array of argument strings
+ * main - Entry point
+ * @argc: Number of arguments
+ * @argv: Array of arguments
  *
  * Return: 0 on success, 1 on error
  */
@@ -13,19 +13,28 @@ int main(int argc, char *argv[])
 {
 	int i, sum = 0;
 
+	if (argc == 1)
+	{
+		printf("0\n");
+		return 0;
+	}
+
 	for (i = 1; i < argc; i++)
 	{
-		if (isdigit(argv[i]))
-			sum += atoi(argv[i]);
-		else
+		int j;
+		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			printf("Error\n");
-			return (1);
+			if (!isdigit(argv[i][j]))
+			{
+				printf("Error\n");
+				return 1;
+			}
 		}
+		sum += atoi(argv[i]);
 	}
 
 	printf("%d\n", sum);
 
-	return (0);
+	return 0;
 }
 
