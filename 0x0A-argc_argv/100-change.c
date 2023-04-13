@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "main.h"
 
 /**
  * main - Entry point of the program
@@ -16,12 +15,7 @@ int main(int argc, char *argv[])
 	/* Check if the number of arguments is exactly 2 */
 	if (argc != 2)
 	{
-		_putchar('E');
-		_putchar('r');
-		_putchar('r');
-		_putchar('o');
-		_putchar('r');
-		_putchar('\n');
+		printf("Error\n");
 		return 1;
 	}
 
@@ -31,8 +25,7 @@ int main(int argc, char *argv[])
 	/* Check if the cents value is negative */
 	if (cents < 0)
 	{
-		_putchar('0');
-		_putchar('\n');
+		printf("0\n");
 		return 0;
 	}
 
@@ -54,21 +47,7 @@ int main(int argc, char *argv[])
 	}
 
 	/* Print the result using _putchar */
-	int num = coins;
-	int digit, divisor = 1;
-
-	while (num / divisor > 9)
-		divisor *= 10;
-
-	while (divisor != 0)
-	{
-		digit = num / divisor;
-		_putchar(digit + '0');
-		num %= divisor;
-		divisor /= 10;
-	}
-
-	_putchar('\n');
+	printf("%d\n", coins);
 
 	return 0;
 }
