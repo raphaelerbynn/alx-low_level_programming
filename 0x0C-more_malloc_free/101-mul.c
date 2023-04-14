@@ -1,94 +1,92 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
 
 /**
- * mul - Multiply two positive numbers
- * @num1: First number to multiply
- * @num2: Second number to multiply
+ * _isdigit - Checks if a character is a digit.
+ * @c: The character to check.
  *
- * Description: This function multiplies two positive numbers represented as
- * strings and prints the result. The input numbers are passed as command line
- * arguments in base 10. The result is printed followed by a new line.
- *
- * Return: None
+ * Return: 1 if c is a digit, 0 otherwise.
  */
-void multiply(char *num1, char *num2) {
-    int len1 = strlen(num1);
-    int len2 = strlen(num2);
-    int *result = calloc(len1 + len2, sizeof(int));
-
-    if (result == NULL) {
-        printf("Error: Failed to allocate memory.\n");
-        exit(98);
-    }
-
-    for (int i = len1 - 1; i >= 0; i--) {
-        for (int j = len2 - 1; j >= 0; j--) {
-            int mul = (num1[i] - '0') * (num2[j] - '0');
-            int sum = result[i + j + 1] + mul;
-            result[i + j] += sum / 10;
-            result[i + j + 1] = sum % 10;
-        }
-    }
-
-    int i = 0;
-    while (i < len1 + len2 && result[i] == 0) {
-        i++;
-    }
-
-    if (i == len1 + len2) {
-        printf("0\n");
-    } else {
-        for (; i < len1 + len2; i++) {
-            printf("%d", result[i]);
-        }
-        printf("\n");
-    }
-
-    free(result);
+int _isdigit(char c)
+{
+	return (c >= '0' && c <= '9');
 }
 
 /**
- * main - Entry point
- * @argc: Number of command line arguments
- * @argv: Array of command line arguments
- *
- * Description: This program multiplies two positive numbers passed as command
- * line arguments and prints the result. The input numbers are expected to be
- * in base 10. The program performs input validation to ensure that the correct
- * number of arguments are provided, and that the input numbers only consist of
- * digits. Errors are printed to stderr, and the program exits with a status of 98
- * in case of errors.
- *
- * Return: 0 on success
+ * print_error - Prints an error message and exits with status 98.
  */
-int main(int argc, char *argv[]) {
-    if (argc != 3) {
-        fprintf(stderr, "Error: Incorrect number of arguments.\n");
-        exit(98);
-    }
+void print_error(void)
+{
+	printf("Error\n");
+	exit(98);
+}
 
-    char *num1 = argv[1];
-    char *num2 = argv[2];
+/**
+ * multiply - Multiplies two positive numbers.
+ * @num1: The first number.
+ * @num2: The second number.
+ */
+void multiply(char *num1, char *num2)
+{
+	int len1 = 0, len2 = 0, i, j, carry, product;
+	int *result;
 
-    for (int i = 0; i < strlen(num1); i++) {
-        if (!isdigit(num1[i])) {
-            fprintf(stderr, "Error: Invalid input for num1.\n");
-            exit(98);
-        }
-    }
+	while (num1[len1] != '\0')
+	{
+		if (!_isdigit(num1[len1]))
+			print_error();
+		len1++;
+	}
 
-    for (int i = 0; i < strlen(num2); i++) {
-        if (!isdigit(num2[i])) {
-            fprintf(stderr, "Error: Invalid input for num2.\n");
-            exit(98);
-        }
-    }
+	while (num2[len2] != '\0')
+	{
+		if (!_isdigit(num2[len2]))
+			print_error();
+		len2++;
+	}
 
-    multiply(num1, num2);
+	result = calloc(len1 + len2, sizeof(int));
+	if (result == NULL)
+		exit(98);
 
-    return 0;
+	for (i = len1 - 1; i >= 0; i--)
+	{
+		carry = 0;
+		for (j = len2 - 1; j >= 0; j--)
+		{
+			product = (num1[i] - '0') * (num2[j] - '0') + carry + result[i + j + 1];
+			carry = product / 10;
+			result[i + j + 1] = product % 10;
+		}
+		result[i] += carry;
+	}
+
+	i = 0;
+	while (result[i] == 0 && i < len1 + len2 - 1)
+		i++;
+	while (i < len1 + len2)
+		printf("%d", result[i++]);
+	printf("\n");
+
+	free(result);
+}
+
+/**
+ * main - Entry point.
+ * @argc: The number of command-line arguments.
+ * @argv: An array of strings containing the command-line arguments.
+ *
+ * Return: 0 on success, 98 on error.
+ */
+int main(int argc, char *argv[])
+{
+	if (argc != 3)
+	{
+		print_error();
+	}
+
+	multiply(argv[1], argv[2]);
+
+	return 0;
 }
 
